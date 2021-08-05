@@ -1,0 +1,38 @@
+#cat /configs/mysqld.cnf >> /etc/mysql/mysql.conf.d/mysqld.cnf
+#mysql -e "create user 'phpuser'@'%' identified by 'pass';" && \
+
+$script_mysql = <<-SCRIPT
+    echo Começando o provisionamento...
+    date > /etc/vagrant_provisioned_at
+    apt-get update && \
+    apt-get install -y mysql-server-5.7 && \
+    mysql -e "create user 'phpuser'@'%' identified by 'pass';"
+SCRIPT
+
+Vagrant.configure("2") do |config|
+    config.vm.box = "ubuntu/bionic64"
+
+    config.vm.define "mysqldb" do |mysqldb|
+    #Guest: Porta da VM, Host: Porta do SO
+    mysqldb.vm.network "public_network", ip:"192.168.101.79"
+
+    #Copiando as configurações da pasta .configs para a máquina provisionada
+    mysqldb.vm.synced_folder ".configs", "/configs"
+    
+    mysqldb.vm.provision "shell",
+        inline: "cat /configs/id_sshkey.pub >> .ssh/authorized_keys"
+
+    mysqldb.vm.provision "shell", inline: $script_mysql
+    mysqldb.vm.provision "shell", 
+    inline: "cat /configs/mysqld.cnf > /etc/mysql/mysql.conf.d/mysqld.cnf"
+    mysqldb.vm.provision "shell", inline: "service mysql restart"
+
+    #Desabilitando acesso a pasta vagrant
+    mysqldb.vm.synced_folder ".", "/vagrant", disabled: true
+    end
+
+    config.vm.define "phpweb" do |phpweb|
+        phpweb.vm.network "forwarded_port", guest:80, host: 8089
+        phpweb.vm.network "public_network", ip:"192.168.101.80"
+    end
+end
