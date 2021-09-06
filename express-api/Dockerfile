@@ -1,15 +1,10 @@
-FROM node:8.11.4
-
-# Create project directory (workdir)
-RUN mkdir /app
-WORKDIR /app
-
-# Add package.json to WORKDIR and install dependencies
-COPY package.json .
+FROM node:latest
+MAINTAINER Levizeira da Bahia
+ENV NODE_ENV=production
+ENV PORT=3000
+COPY . /var/www
+# Diretório inicial 
+WORKDIR /var/www
 RUN npm install
-
-# Add the remaining source code files to WORKDIR
-COPY . .
-
-# Start the application
-CMD ["npm", "start"]
+ENTRYPOINT ["npm", "start"]
+EXPOSE $PORT
