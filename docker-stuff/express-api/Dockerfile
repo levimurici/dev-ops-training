@@ -8,12 +8,12 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY ./api .
+COPY . .
 
 COPY --chown=node:node . .
 
 USER node
 
-EXPOSE 3000
+EXPOSE 3000	
 
-CMD ["node", "app.js" ]
+CMD [ "node", "app.js" ]
