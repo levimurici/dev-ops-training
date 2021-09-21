@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: primeiro-pod-declarativo
+spec:
+  containers:
+  - name: mqtt
+    image: levimurici/mqtt
+  - name: node-red
+    image: levimurici/node-red
+  - name: api
+    image: levimurici/express-api
