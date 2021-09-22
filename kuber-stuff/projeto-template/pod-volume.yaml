@@ -8,14 +8,14 @@ spec:
       image: nginx:latest
       volumeMounts: 
         - mountPath: ./volume-dentro-do-container
-          name: primeiro-volume
+          name: segundo-volume
     - name: jenkins-container
       image: jenkins/jenkins:lts
       volumeMounts: 
         - mountPath: ./volume-dentro-do-container
-          name: primeiro-volume
+          name: segundo-volume
   volumes:
-    - name: primeiro-volume
+    - name: segundo-volume
       hostPath:
         path: /home/volumes/primeiro-volume
-        type: Directory
+        type: DirectoryOrCreate
