@@ -17,7 +17,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: db-configmap
-  replicas: 1
   selector:
     matchLabels:
       app: db-noticias
