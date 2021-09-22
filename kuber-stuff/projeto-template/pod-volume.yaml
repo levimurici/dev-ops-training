@@ -17,5 +17,5 @@ spec:
   volumes:
     - name: primeiro-volume
       hostPath:
-        path: ./primeiro-volume
+        path: /home/volumes/primeiro-volume
         type: Directory
