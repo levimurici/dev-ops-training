@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Pod
+kind: ReplicaSet
 metadata:
   name: portal-noticias-replicaset
 spec:
