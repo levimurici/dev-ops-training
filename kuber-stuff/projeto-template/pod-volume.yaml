@@ -17,5 +17,5 @@ spec:
   volumes:
     - name: primeiro-volume
       hostPath:
-        path: /home/levi/dev-ops/dev-ops-training/kuber-stuff/projeto-template/primeiro-volume
+        path: /home/levi/dev-ops/dev-ops-training/kuber-stuff/projeto-template/primeiro-volume/
         type: Directory
