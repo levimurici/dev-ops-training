@@ -20,4 +20,4 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app portal-noticias
+      app: portal-noticias
