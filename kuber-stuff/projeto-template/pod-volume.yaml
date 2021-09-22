@@ -7,12 +7,12 @@ spec:
     - name: nginx-container
       image: nginx:latest
       volumeMounts: 
-        - mountPath: /volume-dentro-do-container
+        - mountPath: ./volume-dentro-do-container
           name: primeiro-volume
     - name: jenkins-container
       image: jenkins:alpine
       volumeMounts: 
-        - mountPath: /volume-dentro-do-container
+        - mountPath: ./volume-dentro-do-container
           name: primeiro-volume
   volumes:
     - name: primeiro-volume
