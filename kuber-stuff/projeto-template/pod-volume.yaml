@@ -10,7 +10,7 @@ spec:
         - mountPath: ./volume-dentro-do-container
           name: primeiro-volume
     - name: jenkins-container
-      image: jenkins:alpine
+      image: jenkins:stable
       volumeMounts: 
         - mountPath: ./volume-dentro-do-container
           name: primeiro-volume
