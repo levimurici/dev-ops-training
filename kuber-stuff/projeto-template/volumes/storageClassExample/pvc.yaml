@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: task-pv-claim
+  name: claim1-teste
 spec:
-  storageClassName: local-storage
   accessModes:
     - ReadWriteOnce
+  storageClassName: slow
   resources:
     requests:
-      storage: 3Gi
+      storage: 30Gi
