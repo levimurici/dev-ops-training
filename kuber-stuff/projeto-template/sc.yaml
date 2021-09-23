@@ -3,6 +3,6 @@ kind: StorageClass
 metadata:
   name: slow
 provisioner: kubernetes.io/no-provisioner
-parameters:
-  type: pd-standard
-  fstype: ext4
+# parameters:
+#   type: pd-standard
+#   fstype: ext4
