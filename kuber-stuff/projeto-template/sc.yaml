@@ -1,6 +1,6 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
-megadata:
+metadata:
   name: slow
 provisioner: kubernetes.io/local
 parameters:
