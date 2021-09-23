@@ -1,21 +1,21 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: task-pv-pod
+  name: test-pod-pv
 spec:
   nodeSelector:
     kubernetes.io/hostname: minikube
   volumes:
-    - name: task-pv-storage
+    - name: test-pod-storage
       persistentVolumeClaim:
         ## PVC-NAME
-        claimName: task-pv-claim
+        claimName: claim1-teste
   containers:
-    - name: task-pv-container
+    - name: test-pod-container
       image: nginx
       ports:
         - containerPort: 80
           name: "http-server"
       volumeMounts:
         - mountPath: "/usr/share/nginx/html"
-          name: task-pv-storage
+          name: test-pod-pv-storage
