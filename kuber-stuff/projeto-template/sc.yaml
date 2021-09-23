@@ -1,0 +1,8 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+megadata:
+  name: slow
+provisioner: kubernetes.io/local
+parameters:
+  type: pd-standard
+  fstype: ext4
