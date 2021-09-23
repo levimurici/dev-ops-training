@@ -2,6 +2,6 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: slow
-provisioner: kubernetes.io/no-provisioner
+provisioner: kubernetes.io/gce-pd
 parameters:
   type: pd-standard
