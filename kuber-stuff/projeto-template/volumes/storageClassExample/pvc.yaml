@@ -5,7 +5,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  reasources:
+  resources:
     requests:
       storage: 10Gi
   storageClassName: slow
