@@ -8,4 +8,4 @@ spec:
   reasources:
     requests:
       storage: 10Gi
-  storageClassName: standard
+  storageClassName: slow
