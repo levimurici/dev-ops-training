@@ -1,6 +1,6 @@
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
-metada:
+metadata:
   name: portal-noticias-hpa
 spec:
   scaleTargetRef:
