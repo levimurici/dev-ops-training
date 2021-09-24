@@ -3,9 +3,9 @@ kind: Service
 metadata:
   name: svc-loadbalancer
 spec:
-  type: svc-loadbalancer
+  type: LoadBalancer
   ports:
     - port: 80
       nodePort: 3000
   selector:
-    app: sistema-noticias
+    app: portal-noticias
