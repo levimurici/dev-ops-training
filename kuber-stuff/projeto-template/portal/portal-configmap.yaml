@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: portal-configmap
 data:
-  IP_SISTEMA: 192.168.99.100:30001 
+  IP_SISTEMA: 192.168.99.100:30000
