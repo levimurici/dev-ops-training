@@ -17,8 +17,6 @@ config.vm.define "zabbix-server" do |zabbix|
     inline: "sudo yum update && sudo yum -y upgrade"
     zabbix.vm.provision "shell", inline: "sudo chmod +x zabbix-storage/zabbix-init-sh && ./zabbix-storage/zabbix-init.sh"
 
-    zabbix.vm.provision "shell", 
-    inline: $script_zabbix
     zabbix.vm.synced_folder ".", "/vagrant", disabled: true
     end
 end
