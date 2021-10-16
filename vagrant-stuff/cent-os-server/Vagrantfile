@@ -8,14 +8,13 @@ Vagrant.configure("2") do |config|
 config.vm.define "zabbix-server" do |zabbix|
     zabbix.vm.network "public_network", ip: "192.168.1.86"
     zabbix.vm.network "forwarded_port", guest:8666, host: 8666
-    zabbix.vm.synced_folder ".configs", "/home/zabbix-storage"
-    
+        
     zabbix.vm.provision "shell",
-    inline: "cat /home/zabbix-storage/authorized_keys/id_sshkey.pub >> /home/vagrant/.ssh/authorized_keys"
+    inline: "git clone https://github.com/levimurici/zabbix-stuff && cd zabbix-stuff"
 
     zabbix.vm.provision "shell",
     inline: "sudo yum update && sudo yum -y upgrade"
-    zabbix.vm.provision "shell", inline: "sudo chmod +x zabbix-storage/zabbix-init-sh && ./zabbix-storage/zabbix-init.sh"
+    zabbix.vm.provision "shell", inline: "sudo chmod +x zabbix-init-sh && ./zabbix-init.sh"
 
     zabbix.vm.synced_folder ".", "/vagrant", disabled: true
     end
