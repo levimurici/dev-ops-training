@@ -9,6 +9,10 @@ config.vm.define "zabbix-server" do |zabbix|
     zabbix.vm.network "public_network", ip: "192.168.1.86"
     zabbix.vm.network "forwarded_port", guest:8666, host: 8666
 
-    zabbix.vm.provision "shell", path: "zabbix-script-centos.sh"
+    zabbix.vm.synced_folder ".configs", "/home/vagrant/zabbix-stuff"
+
+    zabbix.vm.provision "shell",
+    inline: "chmod +x ~/zabbix-stuff/zabbix-script-centos.sh && ~./zabbix-stuff/zabbix-script-centos.sh"
+
     end
 end
