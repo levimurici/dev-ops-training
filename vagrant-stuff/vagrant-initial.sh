@@ -38,3 +38,4 @@ echo '--------------------------------'
 echo '--------------------------------'
 echo '--------------------------------'
 sudo apt install -y vagrant
+sudo apt-get install -y virtualbox-guest-x11   
