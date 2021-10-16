@@ -13,10 +13,10 @@ config.vm.define "zabbix-server" do |zabbix|
     inline: "sudo yum update" # && sudo yum upgrade -y"
 
     zabbix.vm.provision "shell",
-    inline: "sudo yum install -y git"
+    inline: "echo 'Dando update no sistema' && sudo yum install -y git"
 
     zabbix.vm.provision "shell",
-    inline: "echo 'Clonando zabbix-stuff 'git clone https://github.com/levimurici/zabbix-stuff && cd zabbix-stuff"
+    inline: "echo 'Clonando zabbix-stuff' && git clone https://github.com/levimurici/zabbix-stuff && cd zabbix-stuff"
 
     zabbix.vm.provision "shell", inline: "sudo chmod +x zabbix-init.sh && ./zabbix-init.sh"
 
