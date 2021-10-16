@@ -1,9 +1,9 @@
 $zabbix_script = <<-SCRIPT
-cd ~/zabbix-stuff/scripts && sudo chmod +x zabbix-script.sh && ./zabbix-script.sh
+cd /home/vagrant/zabbix-stuff/scripts && sudo chmod +x zabbix-script.sh && ./zabbix-script.sh
 sudo chmod +x mysql-script.sh && ./mysql-script.sh
 cd ..
 sudo cat zabbix_server.conf > /etc/zabbix/zabbix_server.conf
-sudo cat php.ini > etc/php/7.2/apache2/php.ini
+sudo cat php.ini > /etc/php/7.2/apache2/php.ini
 sudo systemctl restart zabbix-server zabbix-agent apache2
 sudo systemctl enable zabbix-server zabbix-agent apache2
 
@@ -21,7 +21,7 @@ config.vm.define "zabbix-server" do |zabbix|
     zabbix.vm.network "forwarded_port", guest:8666, host: 8666
     zabbix.vm.synced_folder ".configs", "/home/vagrant/zabbix-stuff"
 
-    zabbix.vm.provision "shell",
-    inline: $zabbix_script
+    #zabbix.vm.provision "shell",
+    #inline: $zabbix_script
     end
 end
