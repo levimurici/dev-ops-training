@@ -18,7 +18,7 @@ mysql> quit;
 SCRIPT
 
 Vagrant.configure("2") do |config|
-   config.vm.box = "centos/7"
+   config.vm.box = "bento/centos-8"
    config.vm.provider "virtualbox" do |vb|
        vb.memory = 1024
        vb.cpus = 1
