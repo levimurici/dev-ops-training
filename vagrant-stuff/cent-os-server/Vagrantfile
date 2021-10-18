@@ -29,10 +29,10 @@ config.vm.define "zabbix-server" do |zabbix|
     zabbix.vm.network "forwarded_port", guest:8666, host: 8666
     zabbix.vm.synced_folder ".configs", "/home/vagrant/zabbix-stuff"
 
-    zabbix.vm.provision "shell",
-    inline: $zabbix_script
+#    zabbix.vm.provision "shell",
+#    inline: $zabbix_script
 
-    zabbix.vm.provision "shell",
-    inline: $mysql_script
+#    zabbix.vm.provision "shell",
+#    inline: $mysql_script
     end
 end
