@@ -1,3 +1,4 @@
 # Pastas
 debs/
 express-api/node_modules
+cloud/cloudfront-route-53/.terraform
