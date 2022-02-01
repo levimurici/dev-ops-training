@@ -1,0 +1,3 @@
+[submodule "cloud/suricato-terraform"]
+	path = cloud/suricato-terraform
+	url = https://github.com/suricato-terraform
